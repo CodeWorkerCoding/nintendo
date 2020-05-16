@@ -41,7 +41,7 @@ class NintendoSpiderMiddleware:
         mailer = MailSender(smtphost='smtp.163.com',
                             mailfrom='nchumonitor@163.com',
                             smtpuser='nchumonitor@163.com',
-                            smtppass='EOPXNLRWIJWSWDQX',
+                            smtppass='QIOTVHYMIJFEYKJU',
                             smtpport=25,
                             smtptls=False,
                             smtpssl=False
@@ -49,11 +49,12 @@ class NintendoSpiderMiddleware:
         items = [_ for _ in result]
         # print('ssssssssssssssssssss', json.dumps([dict(_) for _ in items], ensure_ascii=False))
         if items and '品切れ' not in items[0]['stock']:
+        # if items:
             # print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
             resultBody = json.dumps([dict(_) for _ in items], ensure_ascii=False)
             mailer.send(to=['nchufujianjian@126.com', '675858465@qq.com'],
                         subject='Monitor Nintendo site Result',
-                        body='The Nintendo switch result:\n' + resultBody
+                        body='到货啦到货啦到货啦到货啦！！！！！！！！！！！:\n' + resultBody
                         )
 
         return items
